@@ -1,0 +1,47 @@
+<div >
+  <div class="header-content ">
+    <div id ="empHeading" class="emp-detail-text">
+      Employee Details <br>
+      
+ 
+    </div><p class="emp-count">{{this.countNumber}}</p>
+    <!-- when a user click on add user button then the onAddUser function is called in dashboard component -->
+    <button class="add-button" (click)="onAddUser()">Add User</button>
+  </div>
+
+  <div class="table-main">
+    <table id="table-display" class="table">
+      <tr>
+        <!--Table header-->
+
+  <th>id</th>
+        <th>Name</th>
+        <th>Gender</th>
+        <th>Profile pic</th>
+        <th>Department</th>
+        <th>Salary</th>
+        <th> Date</th>
+        <th>note</th>
+        <th>Actions</th>
+      </tr>
+
+<tr *ngFor="let employee of allEmp"> 
+<td>{{employee.id}}</td>
+  <td>{{employee.firstName}}</td>
+  <td>{{employee.gender}}</td>
+  <td><img [src]="employee.profilePic"  ></td>
+  <td class="dept-label">{{employee.department}}</td>
+  <td>{{employee.salary}}</td>
+  <td>{{employee.startDate}}</td>
+  <td>{{employee.notes}}</td>
+
+<td class="action-icon">
+  
+  <img src="../assets/edit.svg" (click)="editById(employee.id)">
+  <img src="../assets/delete.svg" (click)="deleteEmp(employee.id)">
+ 
+</td>
+</tr>
+    </table>
+  </div>
+</div>
